@@ -1,0 +1,72 @@
+<% const title="Add New Item"; %>
+  <%- include('partial/header', {title: title}) %>
+    <!-- Inventory Form handling -->
+    <div class="content">
+      <div class="container-fluid mx-auto">
+        <div class="row justify-content-center mt-3">
+          <div class="col-md-6">
+            <div class="card shadow">
+              <div class="card-header">
+                <div class="d-flex justify-content-center">
+                  <h3>Add New Item</h3>
+                </div>
+              </div>
+
+              <div class="card-body">
+                <form action="/items/create-item" method="post">
+                  <div class="row align-items-center mb-3">
+                    <label for="itemName" class="col-2 fw-bold">Name</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="itemName" name="itemName" required>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center mb-3">
+                    <label for="itemCategory" class="col-2 fw-bold">Category</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="itemCategory" name="itemCategory" required>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center mb-3">
+                    <label for="itemQuantity" class="col-2 fw-bold">Quantity</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="itemQuantity" name="itemQuantity">
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center mb-3">
+                    <label for="itemPrice" class="col-2 fw-bold">Price</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="itemPrice" name="itemPrice" required>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center mb-3">
+                    <label for="itemStatus" class="col-2 fw-bold">Stock Status</label>
+                    <div class="col-sm-10">
+                      <select name="itemStatus" id="itemStatus" class="form-select">
+                        <option value="">Select status</option>
+                        <option value="In Stock">In Stock</option>
+                        <option value="Out of Stock">Out of Stock</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center mb-3">
+                    <label for="itemDescription" class="col-2 fw-bold">Description</label>
+                    <div class="col-sm-10">
+                      <textarea type="text" class="form-control" id="itemDescription" name="itemDescription"
+                        placeholder="Enter item description"></textarea>
+                    </div>
+                  </div>
+
+                  <div class="text-end">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <a href="/items" class="btn btn-secondary">Cancel</a>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%- include('partial/footer') %>

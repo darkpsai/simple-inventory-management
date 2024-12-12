@@ -1,0 +1,97 @@
+<% const title = "Items"; %>
+<%- include('partial/header', {title: title}) %>
+
+  <div class="container">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <form action="/items" method="GET" class="d-flex" role="search">
+            <div class="d-flex justify-content-between w-100">
+              <!-- <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <select name="category" id="category" class="form-select custom-select">
+                      <option value="">All Categories</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <select name="stockStatus" id="stockStatus" class="form-select">
+                      <option value="">All Stock Statuses</option>
+
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                  </div>
+                </div>
+              </div> -->
+              <div class="w-100 text-end">
+                <a href="/items/add" class="btn btn-primary">Add New Item</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-md-12 col-12">
+          <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Stock Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% items.forEach((item, index)=> { %>
+                <tr>
+                  <td>
+                    <%= index + 1 %>
+                  </td>
+                  <td>
+                    <%= item.name %>
+                  </td>
+                  <td>
+                    <%= item.description %>
+                  </td>
+                  <td>
+                    <%= item.quantity %>
+                  </td>
+                  <td>
+                    <%= item.price %>
+                  </td>
+                  <td>
+                    <%= item.category %>
+                  </td>
+                  <td>
+                    <%= item.stockStatus %>
+                  </td>
+                  <td>
+                    <a href="/items/view/<%= item._id %>" class="btn btn-info">View</a>
+                    <a href="/items/edit/<%= item._id %>" class="btn btn-warning">Edit</a>
+                    <form action="/items/delete/<%= item._id %>?_method=DELETE" method="post" class="d-inline">
+                      <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                  </td>
+                </tr>
+                <% }) %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include('partial/footer') %>
