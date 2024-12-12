@@ -3,7 +3,7 @@
 
 ## Overview
 
-A simple Inventory Management System showcasing the basic CRUD functionality
+A simple Inventory Management System showcasing the basic CRUD functionality and the Model-Views-Controllers pattern
 
 ## Features
 - Create item entries and store them in database
